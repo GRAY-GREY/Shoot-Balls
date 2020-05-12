@@ -53,10 +53,10 @@ public class PaintingBalls extends JPanel {
 		
 		//initial algorithm to get the balls out at the right angle and at the right position relative to time
 		if(balls.size() < numOfBalls)
-			if((balls.size() == 0) || ((Math.abs(((X_BOUNDS[1]+X_BOUNDS[0])/2) - balls.get(balls.size()-1).getX()) > 20) || (Math.abs(Y_BOUNDS[1] - balls.get(balls.size()-1).getY()) > 20))) {
+			if((balls.size() == 0) || ((Math.abs(((X_BOUNDS[1]+X_BOUNDS[0])/2) - balls.get(balls.size()-1).getX()) > 20) || (Math.abs(Y_BOUNDS[1] - balls.get(balls.size()-1).getY()) > 20))) {  //make the '20's a lower number if you want the balls to come out faster, make them a bigger number if you want more delay  
 				if(rainbowMode)
 					colors.add(new Integer[]{255, 0, 0, 0});
-				balls.add(new Ball((double) (X_BOUNDS[1]+X_BOUNDS[0])/2, (double) (Y_BOUNDS[1])));
+				balls.add(new Ball((double) (X_BOUNDS[1]+X_BOUNDS[0])/2, (double) (Y_BOUNDS[1]))); //change @params of the Ball Object to move the starting point of the balls
 			}		
 		
 		/**Tracing algorithm
@@ -89,7 +89,7 @@ public class PaintingBalls extends JPanel {
 				ball.setY(ball.getY() + (Math.sin((Math.PI)*(angle/180)))*5);
 			else 
 				ball.setY(ball.getY() - (Math.sin((Math.PI)*(angle/180)))*5);
-			g.fillOval((int) (ball.getX()-5),(int) (ball.getY()-5), 10, 10);
+			g.fillOval((int) (ball.getX()-5),(int) (ball.getY()-5), 10, 10); //change last two numbers of @params of 'fillOval' to make the balls bigger or smaller, or an oval if you want, ex. [..., 5, 20)]
 		}
 		
 	}
